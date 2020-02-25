@@ -8,6 +8,7 @@ namespace Wilon
 {
     public class Cobro
     {
+        public string test;
         public int nroDocumento;
         public string nombre;
         public int saldo;
