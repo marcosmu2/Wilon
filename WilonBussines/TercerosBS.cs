@@ -11,7 +11,7 @@ namespace WilonBussines
 {
     public class TercerosBS
     {
-        public void Guardar(string razonSocial, string documento, int condicionIva, string direccion, int nro, int cp, int localidad,
+        public void Guardar(string razonSocial, int documento, int condicionIva, string direccion, int nro, int cp, int localidad,
             int provincia, string nroTelefono, string cel, string email, int condicionIIBB, string nroIIBB, bool calculaIntereses, decimal tasa,
             string cbu)
         {

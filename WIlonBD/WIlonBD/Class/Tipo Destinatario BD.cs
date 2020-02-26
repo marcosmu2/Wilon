@@ -7,10 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Wilon;
 
-
 namespace WIlonBD.Class
 {
-    public class Condicion_IIBB_BD : Commons.BaseDAO
+    public class Tipo_Destinatario_BD : Commons.BaseDAO
     {
 
         public DataTable SelectAll()

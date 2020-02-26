@@ -54,25 +54,41 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void cmbCuilTrans_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbCuilTrans_SelectedIndexChanged(object sender, EventArgs e)      //cambia el txtNombreDest
         {
-            if (cmbCuilTrans.SelectedValue != null)      //cambia el txtNombreDest
+            if (cmbCuilTrans.SelectedValue != null)      
             {
                 txtNombreTrans.Text = cmbCuilTrans.SelectedValue.ToString();
-                txtNombreDest.Enabled = false;
+                txtNombreTrans.Enabled = false;
             }
             else
             {
                 txtNombreTrans.Text = "";
-                txtNombreDest.Enabled = true;
+                txtNombreTrans.Enabled = true;
             }
         }
 
-        private void btnMas_Click(object sender, EventArgs e)
+        private void btnMas_Click(object sender, EventArgs e)                    //CREAR LISTA
         {
             listView1.View = View.Details;      //mostrar la vista en modo detalle
             listView1.FullRowSelect = true;     //selecciona toda la fila y no solo la celda
-            
+
+            if (txtComprobanteTrans.Text == "")         //validacion datos que van a la lista
+            {    
+                MessageBox.Show("Debe ingresar un número de Comprobante antes de añadir a la lista");
+                return;
+            }
+            if (txtDetalleTrans.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Detalle antes de añadir a la lista");
+                return;
+            }
+            if (txtImporteTrans.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Importe antes de añadir a la lista");
+                return;
+            }
+
             ListViewItem item = new ListViewItem(date2.Value.ToString("dd/MM/yyyy"));   //crea los items
             item.SubItems.Add(txtComprobanteTrans.Text);    //crea los subitems
             item.SubItems.Add(txtDetalleTrans.Text);
@@ -101,8 +117,11 @@ namespace WindowsFormsApp1
             int cuilTrans = 0;
             int tipoDest = 0;
             int tipoTrans = 0;
+            char tipoComprobante = 'R';
 
-            var obViajes = new ViajesBS();
+            var obDestinatario = new ViajesBS();
+            var obTransportista = new ViajesBS();
+            var obTransportista2 = new ViajesBS();
 
             //validacion para los combos
             if (cmbCuilDest.SelectedValue != null)
@@ -143,11 +162,23 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            //obViajes.Guardar(txtRemito.Text, cuilDest, txtNombreDest.Text, tipoDest, txtUnidadDest.Text, 
-            //    int.Parse(txtCantidadDest.Text),int.Parse(txtValorDest.Text), txtDetalleDest.Text, int.Parse(txtTotalDest.Text),
-            //    cuilTrans, txtNombreTrans.Text, tipoTrans, int.Parse(txtComprobanteTrans.Text), txtDetalleTrans.Text, 
-            //    int.Parse(txtImporteTrans.Text), txtUnidadTrans.Text, int.Parse(txtCantidadTrans.Text), 
-            //    int.Parse(txtValorTrans.Text), txtDetalleTrans2.Text, int.Parse(txtTotalTrans.Text));
+            //guarda datos del destinatario
+            obDestinatario.guardarDestinatario(cuilDest, date1.Value,tipoComprobante, 1, int.Parse(txtRemito.Text),
+                txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
+                decimal.Parse(""), decimal.Parse(txtTotalDest.Text), int.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""), 
+                int.Parse(""), int.Parse(""), tipoDest, int.Parse("-"));
+
+            //guarda datos de la lista transportista
+            obTransportista.guardarTransportista(cuilDest, date1.Value, tipoComprobante, 1, int.Parse(txtRemito.Text),
+                txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
+                decimal.Parse(txtTotalDest.Text), decimal.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""),
+                int.Parse(""), int.Parse(""), tipoDest, int.Parse("-"));
+
+            //guarda datos del transportista
+            obTransportista2.guardarTransportista2(cuilTrans, date2.Value, tipoComprobante, 1, int.Parse(txtRemito.Text),
+                txtDetalleTrans2.Text, txtUnidadTrans.Text, decimal.Parse(txtCantidadTrans.Text), decimal.Parse(txtValorTrans.Text),
+                decimal.Parse(""), decimal.Parse(txtTotalTrans.Text), int.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""),
+                int.Parse(""), int.Parse(""), int.Parse("-"), tipoTrans);
 
         }
 
@@ -155,6 +186,5 @@ namespace WindowsFormsApp1
         {
             Close();
         }
-
     }
 }

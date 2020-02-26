@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,8 @@ namespace WilonBussines
         public DataTable SeleccionarTodosDT()
         {
             var wLstCondicion = new DataTable();
-            //var wBD = new CondicionIVABD();
-            //wLstCondicion = wBD.SelectAll();
+            var wBD = new Tipo_Destinatario_BD();
+            wLstCondicion = wBD.SelectAll();
             return wLstCondicion;
         }
     }

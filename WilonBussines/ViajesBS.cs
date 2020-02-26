@@ -11,35 +11,89 @@ namespace WilonBussines
     public class ViajesBS
     {
 
-        //public void Guardar(string remito, int cuilDest, string nombreDest, int tipoDest, string unidadDest, int cantidadDest,
-        //   int valorDest, string detalleDest, int totalDest, int cuilTrans, string nombreTrans, int tipoTrans, int comprobanteTrans,
-        //   string detalleTrans, int importeTrans, string unidadTrans, int cantidadTrans, int valorTrans, string detalleTrans2,
-        //   int totalTrans)
-        //{
-        //    var obViajes = new Viajes();
+        public void guardarDestinatario( int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
+            string detalle, string unidad, decimal cantidad, decimal precioUnitario, decimal debeImporte, decimal haberImporte,
+            int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
+            int tipoDest,int tipoTrans)
+        {
+            var obViajes = new Viajes();
 
-        //    obViajes.remito = remito;
-        //    obViajes.cuilDest = cuilDest;
-        //    obViajes.nombreDest = nombreDest;
-        //    obViajes.tipoDest = tipoDest;
-        //    obViajes.unidadDest = unidadDest;
-        //    obViajes.cantidadDest = cantidadDest;
-        //    obViajes.valorDest = valorDest;
-        //    obViajes.detalleDest = detalleDest;
-        //    obViajes.totalDest = totalDest;
-        //    obViajes.cuilTrans = cuilTrans;
-        //    obViajes.nombreTrans = nombreTrans;
-        //    obViajes.tipoTrans = tipoTrans;
-        //    obViajes.comprobanteTrans = comprobanteTrans;
-        //    obViajes.detalleTrans = detalleTrans;
-        //    obViajes.importeTrans = importeTrans;
-        //    obViajes.unidadTrans = unidadTrans;
-        //    obViajes.cantidadTrans = cantidadTrans;
-        //    obViajes.valorTrans = valorTrans;
-        //    obViajes.detalleTrans2 = detalleTrans2;
-        //    obViajes.totalTrans = totalTrans;
+            obViajes.cuil=cuil;
+            obViajes.fecha = fecha;
+            obViajes.tipoComprobante = tipoComprobante;
+            obViajes.PVComprobante = PVComprobante;
+            obViajes.numeroComprobante = numeroComprobante;
+            obViajes.detalle = detalle;
+            obViajes.unidad = unidad;
+            obViajes.cantidad = cantidad;
+            obViajes.precioUnitario = precioUnitario;
+            obViajes.debeImporte = debeImporte;
+            obViajes.haberImporte = haberImporte;
+            obViajes.detalleAnio = detalleAnio;
+            obViajes.detalleNumero = detalleNumero;
+            obViajes.pagoCobroAnio = pagoCobroAnio;
+            obViajes.pagoCobroNumero = pagoCobroNumero;
+            obViajes.facturadoPV = facturadoPV;
+            obViajes.facturadoNumero = facturadoNumero;
+            obViajes.tipoDest = tipoDest;
+            obViajes.tipoTrans = tipoTrans;
+        }
 
-        //}
+        public void guardarTransportista(int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
+            string detalle, string unidad, decimal cantidad, decimal precioUnitario, decimal debeImporte, decimal haberImporte,
+            int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
+            int tipoDest, int tipoTrans)
+        {
+            var obViajes = new Viajes();
+
+            obViajes.cuil = cuil;
+            obViajes.fecha = fecha;
+            obViajes.tipoComprobante = tipoComprobante;
+            obViajes.PVComprobante = PVComprobante;
+            obViajes.numeroComprobante = numeroComprobante;
+            obViajes.detalle = detalle;
+            obViajes.unidad = unidad;
+            obViajes.cantidad = cantidad;
+            obViajes.precioUnitario = precioUnitario;
+            obViajes.debeImporte = debeImporte;
+            obViajes.haberImporte = haberImporte;
+            obViajes.detalleAnio = detalleAnio;
+            obViajes.detalleNumero = detalleNumero;
+            obViajes.pagoCobroAnio = pagoCobroAnio;
+            obViajes.pagoCobroNumero = pagoCobroNumero;
+            obViajes.facturadoPV = facturadoPV;
+            obViajes.facturadoNumero = facturadoNumero;
+            obViajes.tipoDest = tipoDest;
+            obViajes.tipoTrans = tipoTrans;
+        }
+
+        public void guardarTransportista2(int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
+            string detalle, string unidad, decimal cantidad, decimal precioUnitario, decimal debeImporte, decimal haberImporte,
+            int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
+            int tipoDest, int tipoTrans)
+        {
+            var obViajes = new Viajes();
+
+            obViajes.cuil = cuil;
+            obViajes.fecha = fecha;
+            obViajes.tipoComprobante = tipoComprobante;
+            obViajes.PVComprobante = PVComprobante;
+            obViajes.numeroComprobante = numeroComprobante;
+            obViajes.detalle = detalle;
+            obViajes.unidad = unidad;
+            obViajes.cantidad = cantidad;
+            obViajes.precioUnitario = precioUnitario;
+            obViajes.debeImporte = debeImporte;
+            obViajes.haberImporte = haberImporte;
+            obViajes.detalleAnio = detalleAnio;
+            obViajes.detalleNumero = detalleNumero;
+            obViajes.pagoCobroAnio = pagoCobroAnio;
+            obViajes.pagoCobroNumero = pagoCobroNumero;
+            obViajes.facturadoPV = facturadoPV;
+            obViajes.facturadoNumero = facturadoNumero;
+            obViajes.tipoDest = tipoDest;
+            obViajes.tipoTrans = tipoTrans;
+        }
 
     }
 }

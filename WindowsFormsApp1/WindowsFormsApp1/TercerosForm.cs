@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            string documento;
+            int documento;
             decimal tasa;
             int nrodomicilio; 
             int cp;
@@ -82,18 +82,16 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            string patron = @"\d{2}-\d{8}-\d{1}";       //expresion regular para el formato CUIL o CUIT
-            Regex miRegex = new Regex(patron);
-            MatchCollection elMatch = miRegex.Matches(txtDocumento.Text);
+            if (int.TryParse(txtDocumento.Text, out documento))              //validacion numero de CUIL/CUIT
+            {
 
-            if (elMatch.Count > 0)              //validacion numero de CUIL/CUIT
-                documento = txtDocumento.Text;
+            }
             else
             {
-                MessageBox.Show("El número de Documento no es válido");
+                MessageBox.Show("Debe escribir el numero de CUIL/CUIT sin guiones");
                 return;
             }
-            
+
             int.TryParse(txtNro.Text, out nrodomicilio);      //Convierte a Int todos los datos que ingregas (string)
             int.TryParse(txtCp.Text, out cp);
             decimal.TryParse(txtTasa.Text, out tasa);

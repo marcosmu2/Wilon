@@ -47,6 +47,9 @@
     <Compile Include="Class\LocalidadBD.cs" />
     <Compile Include="Class\ProvinciaBD.cs" />
     <Compile Include="Class\TerceroBD.cs" />
+    <Compile Include="Class\Tipo Destinatario BD.cs" />
+    <Compile Include="Class\Tipo Transportista BD.cs" />
+    <Compile Include="Class\ViajesBD.cs" />
     <Compile Include="Commons\BaseDAO.cs" />
     <Compile Include="Commons\Parameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
