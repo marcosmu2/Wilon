@@ -8,29 +8,25 @@ namespace Wilon
 {
     public class Viajes
     {
-
-        public string remito;
-
-        public int cuilDest;
-        public string nombreDest;
+        public int cuil;
+        public DateTime fecha;
+        public char tipoComprobante;
+        public int PVComprobante;
+        public int numeroComprobante;
+        public string detalle;
+        public string unidad;
+        public decimal cantidad;
+        public decimal precioUnitario;
+        public decimal debeImporte;
+        public decimal haberImporte;
+        public int detalleAnio;
+        public int detalleNumero;
+        public int pagoCobroAnio;
+        public int pagoCobroNumero;
+        public int facturadoPV;
+        public int facturadoNumero;
         public int tipoDest;
-        public string unidadDest;
-        public int cantidadDest;
-        public int valorDest;
-        public string detalleDest;
-        public int totalDest;
-
-        public int cuilTrans;
-        public string nombreTrans;
         public int tipoTrans;
-        public int comprobanteTrans;
-        public string detalleTrans;
-        public int importeTrans;
-        public string unidadTrans;
-        public int cantidadTrans;
-        public int valorTrans;
-        public string detalleTrans2;
-        public int totalTrans;
 
     }
 }

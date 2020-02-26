@@ -143,11 +143,11 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            obViajes.Guardar(txtRemito.Text, cuilDest, txtNombreDest.Text, tipoDest, txtUnidadDest.Text, 
-                int.Parse(txtCantidadDest.Text),int.Parse(txtValorDest.Text), txtDetalleDest.Text, int.Parse(txtTotalDest.Text),
-                cuilTrans, txtNombreTrans.Text, tipoTrans, int.Parse(txtComprobanteTrans.Text), txtDetalleTrans.Text, 
-                int.Parse(txtImporteTrans.Text), txtUnidadTrans.Text, int.Parse(txtCantidadTrans.Text), 
-                int.Parse(txtValorTrans.Text), txtDetalleTrans2.Text, int.Parse(txtTotalTrans.Text));
+            //obViajes.Guardar(txtRemito.Text, cuilDest, txtNombreDest.Text, tipoDest, txtUnidadDest.Text, 
+            //    int.Parse(txtCantidadDest.Text),int.Parse(txtValorDest.Text), txtDetalleDest.Text, int.Parse(txtTotalDest.Text),
+            //    cuilTrans, txtNombreTrans.Text, tipoTrans, int.Parse(txtComprobanteTrans.Text), txtDetalleTrans.Text, 
+            //    int.Parse(txtImporteTrans.Text), txtUnidadTrans.Text, int.Parse(txtCantidadTrans.Text), 
+            //    int.Parse(txtValorTrans.Text), txtDetalleTrans2.Text, int.Parse(txtTotalTrans.Text));
 
         }
 
