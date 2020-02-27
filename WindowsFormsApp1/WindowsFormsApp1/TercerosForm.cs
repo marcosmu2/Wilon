@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            int documento;
+            long documento;
             decimal tasa;
             int nrodomicilio; 
             int cp;
@@ -82,9 +82,17 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if (int.TryParse(txtDocumento.Text, out documento))              //validacion numero de CUIL/CUIT
+            if (long.TryParse(txtDocumento.Text, out documento))              //validacion numero de CUIL/CUIT
             {
+                if (documento > 20000000000)
+                {
 
+                }
+                else
+                {
+                    MessageBox.Show("Debe ingresar un numero de CUIL/CUIT");
+                    return;
+                }
             }
             else
             {

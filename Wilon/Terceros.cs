@@ -10,7 +10,7 @@ namespace Wilon
     {
 
         public string razonSocial;
-        public int documento;
+        public long documento;
         public int condicionIva;
         public string direccion;
         public int nro;
