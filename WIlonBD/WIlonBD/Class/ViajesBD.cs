@@ -144,18 +144,18 @@ namespace WIlonBD.Class
             //    #endregion
 
                 wCmd.CommandText = wQuery.ToString();
-                if (base.mSqlTransaction == null)
-                    wCmd.Connection = base.GetOpenedConection();
-                else
-                {
-                    wCmd.Connection = (SqlConnection)base.mSqlTransaction.Connection;
-                    wCmd.Transaction = (SqlTransaction)base.mSqlTransaction;
-                }
-                wCmd.CommandTimeout = wCmd.Connection.ConnectionTimeout;
+            if (base.mSqlTransaction == null)
+                wCmd.Connection = base.GetOpenedConection();
+            else
+            {
+                wCmd.Connection = (SqlConnection)base.mSqlTransaction.Connection;
+                wCmd.Transaction = (SqlTransaction)base.mSqlTransaction;
+            }
+            wCmd.CommandTimeout = wCmd.Connection.ConnectionTimeout;
 
-                int wRtn = Convert.ToInt32(wCmd.ExecuteScalar());
+            int wRtn = Convert.ToInt32(wCmd.ExecuteScalar());
 
-                return wRtn;
+            return wRtn;
             }
             catch (SqlException exp)
             {
@@ -168,3 +168,4 @@ namespace WIlonBD.Class
             }
         }
     }
+}
