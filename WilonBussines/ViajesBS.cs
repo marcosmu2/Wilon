@@ -16,27 +16,27 @@ namespace WilonBussines
             int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
             int tipoDest,int tipoTrans)
         {
-            var obViajes = new Viajes();
+            var obDestinatario = new Viajes();
 
-            obViajes.cuil=cuil;
-            obViajes.fecha = fecha;
-            obViajes.tipoComprobante = tipoComprobante;
-            obViajes.PVComprobante = PVComprobante;
-            obViajes.numeroComprobante = numeroComprobante;
-            obViajes.detalle = detalle;
-            obViajes.unidad = unidad;
-            obViajes.cantidad = cantidad;
-            obViajes.precioUnitario = precioUnitario;
-            obViajes.debeImporte = debeImporte;
-            obViajes.haberImporte = haberImporte;
-            obViajes.detalleAnio = detalleAnio;
-            obViajes.detalleNumero = detalleNumero;
-            obViajes.pagoCobroAnio = pagoCobroAnio;
-            obViajes.pagoCobroNumero = pagoCobroNumero;
-            obViajes.facturadoPV = facturadoPV;
-            obViajes.facturadoNumero = facturadoNumero;
-            obViajes.tipoDest = tipoDest;
-            obViajes.tipoTrans = tipoTrans;
+            obDestinatario.cuil=cuil;
+            obDestinatario.fecha = fecha;
+            obDestinatario.tipoComprobante = tipoComprobante;
+            obDestinatario.PVComprobante = PVComprobante;
+            obDestinatario.numeroComprobante = numeroComprobante;
+            obDestinatario.detalle = detalle;
+            obDestinatario.unidad = unidad;
+            obDestinatario.cantidad = cantidad;
+            obDestinatario.precioUnitario = precioUnitario;
+            obDestinatario.debeImporte = debeImporte;
+            obDestinatario.haberImporte = haberImporte;
+            obDestinatario.detalleAnio = detalleAnio;
+            obDestinatario.detalleNumero = detalleNumero;
+            obDestinatario.pagoCobroAnio = pagoCobroAnio;
+            obDestinatario.pagoCobroNumero = pagoCobroNumero;
+            obDestinatario.facturadoPV = facturadoPV;
+            obDestinatario.facturadoNumero = facturadoNumero;
+            obDestinatario.tipoDest = tipoDest;
+            obDestinatario.tipoTrans = tipoTrans;
         }
 
         public void guardarTransportista(int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
@@ -44,27 +44,27 @@ namespace WilonBussines
             int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
             int tipoDest, int tipoTrans)
         {
-            var obViajes = new Viajes();
+            var obTransportista = new Viajes();
 
-            obViajes.cuil = cuil;
-            obViajes.fecha = fecha;
-            obViajes.tipoComprobante = tipoComprobante;
-            obViajes.PVComprobante = PVComprobante;
-            obViajes.numeroComprobante = numeroComprobante;
-            obViajes.detalle = detalle;
-            obViajes.unidad = unidad;
-            obViajes.cantidad = cantidad;
-            obViajes.precioUnitario = precioUnitario;
-            obViajes.debeImporte = debeImporte;
-            obViajes.haberImporte = haberImporte;
-            obViajes.detalleAnio = detalleAnio;
-            obViajes.detalleNumero = detalleNumero;
-            obViajes.pagoCobroAnio = pagoCobroAnio;
-            obViajes.pagoCobroNumero = pagoCobroNumero;
-            obViajes.facturadoPV = facturadoPV;
-            obViajes.facturadoNumero = facturadoNumero;
-            obViajes.tipoDest = tipoDest;
-            obViajes.tipoTrans = tipoTrans;
+            obTransportista.cuil = cuil;
+            obTransportista.fecha = fecha;
+            obTransportista.tipoComprobante = tipoComprobante;
+            obTransportista.PVComprobante = PVComprobante;
+            obTransportista.numeroComprobante = numeroComprobante;
+            obTransportista.detalle = detalle;
+            obTransportista.unidad = unidad;
+            obTransportista.cantidad = cantidad;
+            obTransportista.precioUnitario = precioUnitario;
+            obTransportista.debeImporte = debeImporte;
+            obTransportista.haberImporte = haberImporte;
+            obTransportista.detalleAnio = detalleAnio;
+            obTransportista.detalleNumero = detalleNumero;
+            obTransportista.pagoCobroAnio = pagoCobroAnio;
+            obTransportista.pagoCobroNumero = pagoCobroNumero;
+            obTransportista.facturadoPV = facturadoPV;
+            obTransportista.facturadoNumero = facturadoNumero;
+            obTransportista.tipoDest = tipoDest;
+            obTransportista.tipoTrans = tipoTrans;
         }
 
         public void guardarTransportista2(int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
@@ -72,27 +72,27 @@ namespace WilonBussines
             int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
             int tipoDest, int tipoTrans)
         {
-            var obViajes = new Viajes();
+            var obTransporitista2 = new Viajes();
 
-            obViajes.cuil = cuil;
-            obViajes.fecha = fecha;
-            obViajes.tipoComprobante = tipoComprobante;
-            obViajes.PVComprobante = PVComprobante;
-            obViajes.numeroComprobante = numeroComprobante;
-            obViajes.detalle = detalle;
-            obViajes.unidad = unidad;
-            obViajes.cantidad = cantidad;
-            obViajes.precioUnitario = precioUnitario;
-            obViajes.debeImporte = debeImporte;
-            obViajes.haberImporte = haberImporte;
-            obViajes.detalleAnio = detalleAnio;
-            obViajes.detalleNumero = detalleNumero;
-            obViajes.pagoCobroAnio = pagoCobroAnio;
-            obViajes.pagoCobroNumero = pagoCobroNumero;
-            obViajes.facturadoPV = facturadoPV;
-            obViajes.facturadoNumero = facturadoNumero;
-            obViajes.tipoDest = tipoDest;
-            obViajes.tipoTrans = tipoTrans;
+            obTransporitista2.cuil = cuil;
+            obTransporitista2.fecha = fecha;
+            obTransporitista2.tipoComprobante = tipoComprobante;
+            obTransporitista2.PVComprobante = PVComprobante;
+            obTransporitista2.numeroComprobante = numeroComprobante;
+            obTransporitista2.detalle = detalle;
+            obTransporitista2.unidad = unidad;
+            obTransporitista2.cantidad = cantidad;
+            obTransporitista2.precioUnitario = precioUnitario;
+            obTransporitista2.debeImporte = debeImporte;
+            obTransporitista2.haberImporte = haberImporte;
+            obTransporitista2.detalleAnio = detalleAnio;
+            obTransporitista2.detalleNumero = detalleNumero;
+            obTransporitista2.pagoCobroAnio = pagoCobroAnio;
+            obTransporitista2.pagoCobroNumero = pagoCobroNumero;
+            obTransporitista2.facturadoPV = facturadoPV;
+            obTransporitista2.facturadoNumero = facturadoNumero;
+            obTransporitista2.tipoDest = tipoDest;
+            obTransporitista2.tipoTrans = tipoTrans;
         }
 
     }

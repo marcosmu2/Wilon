@@ -20,7 +20,7 @@ namespace WIlonBD.Class
             {
                 wQuery = new StringBuilder("SELECT Id, ");
                 wQuery.Append("			Descripcion");
-                wQuery.Append("			FROM [CondicionesIIBB] ");
+                wQuery.Append("			FROM [TipoTransportistas] ");
 
 
                 wCmd.CommandText = wQuery.ToString();

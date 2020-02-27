@@ -38,6 +38,23 @@ namespace WindowsFormsApp1
             cmbCuilTrans.ValueMember = "RazonSocial";
             cmbCuilTrans.DataSource = obCuilCuitTrans.SeleccionarTodosDT();
             cmbCuilTrans.SelectedValue = -1;
+
+            //Combo Tipo Destinatario
+            var obTipoDest = new TipoDestinatarioBS();
+
+            cmbTipoDest.DisplayMember = "Descripcion";
+            cmbTipoDest.ValueMember = "Id";
+            cmbTipoDest.DataSource = obTipoDest.SeleccionarTodosDT();
+            cmbTipoDest.SelectedValue = -1;
+
+            //Combo Tipo Transportista
+            var obTipoTrans = new TipoTransportistaBS();
+
+            cmbTipoTrans.DisplayMember = "Descripcion";
+            cmbTipoTrans.ValueMember = "Id";
+            cmbTipoTrans.DataSource = obTipoTrans.SeleccionarTodosDT();
+            cmbTipoTrans.SelectedValue = -1;
+
         }
 
         private void cmbCuilDest_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,7 +148,7 @@ namespace WindowsFormsApp1
             if (cmbCuilTrans.SelectedValue != null)
                 int.TryParse(cmbCuilTrans.SelectedValue.ToString(), out cuilTrans);
             if (cmbCuilTrans.SelectedValue != null)
-                int.TryParse(cmbCuilTrans.SelectedValue.ToString(), out tipoTrans);
+                int.TryParse(cmbTipoTrans.SelectedValue.ToString(), out tipoTrans);
 
             if (txtCantidadTrans.Text != "") 
             {
@@ -163,22 +180,19 @@ namespace WindowsFormsApp1
             }
 
             //guarda datos del destinatario
-            obDestinatario.guardarDestinatario(cuilDest, date1.Value,tipoComprobante, 1, int.Parse(txtRemito.Text),
+            obDestinatario.guardarDestinatario(cuilDest, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
                 txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
-                decimal.Parse(""), decimal.Parse(txtTotalDest.Text), int.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""), 
-                int.Parse(""), int.Parse(""), tipoDest, int.Parse("-"));
+                decimal.Parse(txtTotalDest.Text), 0, 0, 0, 0, 0, 0, 0, tipoDest, 0);
 
             //guarda datos de la lista transportista
-            obTransportista.guardarTransportista(cuilDest, date1.Value, tipoComprobante, 1, int.Parse(txtRemito.Text),
+            obTransportista.guardarTransportista(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
                 txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
-                decimal.Parse(txtTotalDest.Text), decimal.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""),
-                int.Parse(""), int.Parse(""), tipoDest, int.Parse("-"));
+                decimal.Parse(txtTotalDest.Text), 0, 0, 0, 0, 0, 0, 0, tipoDest, 0);
 
             //guarda datos del transportista
-            obTransportista2.guardarTransportista2(cuilTrans, date2.Value, tipoComprobante, 1, int.Parse(txtRemito.Text),
+            obTransportista2.guardarTransportista2(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
                 txtDetalleTrans2.Text, txtUnidadTrans.Text, decimal.Parse(txtCantidadTrans.Text), decimal.Parse(txtValorTrans.Text),
-                decimal.Parse(""), decimal.Parse(txtTotalTrans.Text), int.Parse(""), int.Parse(""), int.Parse(""), int.Parse(""),
-                int.Parse(""), int.Parse(""), int.Parse("-"), tipoTrans);
+                0, decimal.Parse(txtTotalTrans.Text), 0, 0, 0, 0, 0, 0, 0, tipoTrans);
 
         }
 
