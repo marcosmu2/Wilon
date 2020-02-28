@@ -44,6 +44,7 @@
     <Compile Include="CodigoOperacionBS.cs" />
     <Compile Include="CondicionBS.cs" />
     <Compile Include="CondicionIIBB_BS.cs" />
+    <Compile Include="FacturacionBS.cs" />
     <Compile Include="LocalidadBS.cs" />
     <Compile Include="MediosDePagoBS.cs" />
     <Compile Include="MonedaBS.cs" />

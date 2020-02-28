@@ -43,6 +43,7 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEgresos = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +89,7 @@
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtNombre
             // 
@@ -154,15 +156,17 @@
             this.btnIngresos.TabIndex = 4;
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.UseVisualStyleBackColor = true;
+            this.btnIngresos.Click += new System.EventHandler(this.btnIngresos_Click);
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(470, 361);
+            this.btnVolver.Location = new System.Drawing.Point(389, 361);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnImprimir
             // 
@@ -181,12 +185,23 @@
             this.btnEgresos.TabIndex = 7;
             this.btnEgresos.Text = "Egresos";
             this.btnEgresos.UseVisualStyleBackColor = true;
+            this.btnEgresos.Click += new System.EventHandler(this.btnEgresos_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(470, 361);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 8;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
             // CuentasCorrientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 398);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEgresos);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.btnVolver);
@@ -221,5 +236,6 @@
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnEgresos;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
