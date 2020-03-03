@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbNroDocumento = new System.Windows.Forms.ComboBox();
             this.txtCondicionIVA = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,32 +39,31 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbNroDocumento = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.date1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbCodigoOp = new System.Windows.Forms.ComboBox();
-            this.cmbObjetivo = new System.Windows.Forms.ComboBox();
-            this.cmbComprobante = new System.Windows.Forms.ComboBox();
-            this.txtNro2 = new System.Windows.Forms.TextBox();
-            this.txtNro1 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtDetalle = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtNro1 = new System.Windows.Forms.TextBox();
+            this.txtNro2 = new System.Windows.Forms.TextBox();
+            this.cmbComprobante = new System.Windows.Forms.ComboBox();
+            this.cmbObjetivo = new System.Windows.Forms.ComboBox();
+            this.cmbCodigoOp = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.date1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.txtSuj = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.txtIIBB = new System.Windows.Forms.TextBox();
             this.txtInternos = new System.Windows.Forms.TextBox();
             this.txtNacionales = new System.Windows.Forms.TextBox();
             this.txtMunicipales = new System.Windows.Forms.TextBox();
-            this.txtSuj = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -84,6 +84,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtVencPago = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -91,8 +93,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.cmbMoneda = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtVencPago = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -120,6 +120,14 @@
             this.groupBox1.Size = new System.Drawing.Size(686, 90);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // cmbNroDocumento
+            // 
+            this.cmbNroDocumento.FormattingEnabled = true;
+            this.cmbNroDocumento.Location = new System.Drawing.Point(133, 33);
+            this.cmbNroDocumento.Name = "cmbNroDocumento";
+            this.cmbNroDocumento.Size = new System.Drawing.Size(142, 21);
+            this.cmbNroDocumento.TabIndex = 1;
             // 
             // txtCondicionIVA
             // 
@@ -195,14 +203,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Documento";
             // 
-            // cmbNroDocumento
-            // 
-            this.cmbNroDocumento.FormattingEnabled = true;
-            this.cmbNroDocumento.Location = new System.Drawing.Point(133, 33);
-            this.cmbNroDocumento.Name = "cmbNroDocumento";
-            this.cmbNroDocumento.Size = new System.Drawing.Size(142, 21);
-            this.cmbNroDocumento.TabIndex = 1;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtDetalle);
@@ -224,95 +224,12 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // date1
+            // txtDetalle
             // 
-            this.date1.Location = new System.Drawing.Point(6, 19);
-            this.date1.Name = "date1";
-            this.date1.Size = new System.Drawing.Size(200, 20);
-            this.date1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(563, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Recibo: 0000-0000000\r\n";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(356, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Codigo Op.:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Objeto:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 53);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Comprobante:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(472, 53);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(30, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Nro.:";
-            // 
-            // cmbCodigoOp
-            // 
-            this.cmbCodigoOp.FormattingEnabled = true;
-            this.cmbCodigoOp.Location = new System.Drawing.Point(420, 72);
-            this.cmbCodigoOp.Name = "cmbCodigoOp";
-            this.cmbCodigoOp.Size = new System.Drawing.Size(260, 21);
-            this.cmbCodigoOp.TabIndex = 5;
-            // 
-            // cmbObjetivo
-            // 
-            this.cmbObjetivo.FormattingEnabled = true;
-            this.cmbObjetivo.Location = new System.Drawing.Point(53, 72);
-            this.cmbObjetivo.Name = "cmbObjetivo";
-            this.cmbObjetivo.Size = new System.Drawing.Size(297, 21);
-            this.cmbObjetivo.TabIndex = 4;
-            // 
-            // cmbComprobante
-            // 
-            this.cmbComprobante.FormattingEnabled = true;
-            this.cmbComprobante.Location = new System.Drawing.Point(85, 45);
-            this.cmbComprobante.Name = "cmbComprobante";
-            this.cmbComprobante.Size = new System.Drawing.Size(381, 21);
-            this.cmbComprobante.TabIndex = 1;
-            // 
-            // txtNro2
-            // 
-            this.txtNro2.Location = new System.Drawing.Point(566, 46);
-            this.txtNro2.Name = "txtNro2";
-            this.txtNro2.Size = new System.Drawing.Size(114, 20);
-            this.txtNro2.TabIndex = 3;
-            // 
-            // txtNro1
-            // 
-            this.txtNro1.Location = new System.Drawing.Point(508, 46);
-            this.txtNro1.Name = "txtNro1";
-            this.txtNro1.Size = new System.Drawing.Size(52, 20);
-            this.txtNro1.TabIndex = 2;
+            this.txtDetalle.Location = new System.Drawing.Point(70, 99);
+            this.txtDetalle.Name = "txtDetalle";
+            this.txtDetalle.Size = new System.Drawing.Size(610, 20);
+            this.txtDetalle.TabIndex = 6;
             // 
             // label12
             // 
@@ -323,12 +240,95 @@
             this.label12.TabIndex = 12;
             this.label12.Text = "DETALLE:";
             // 
-            // txtDetalle
+            // txtNro1
             // 
-            this.txtDetalle.Location = new System.Drawing.Point(70, 99);
-            this.txtDetalle.Name = "txtDetalle";
-            this.txtDetalle.Size = new System.Drawing.Size(610, 20);
-            this.txtDetalle.TabIndex = 6;
+            this.txtNro1.Location = new System.Drawing.Point(508, 46);
+            this.txtNro1.Name = "txtNro1";
+            this.txtNro1.Size = new System.Drawing.Size(52, 20);
+            this.txtNro1.TabIndex = 2;
+            // 
+            // txtNro2
+            // 
+            this.txtNro2.Location = new System.Drawing.Point(566, 46);
+            this.txtNro2.Name = "txtNro2";
+            this.txtNro2.Size = new System.Drawing.Size(114, 20);
+            this.txtNro2.TabIndex = 3;
+            // 
+            // cmbComprobante
+            // 
+            this.cmbComprobante.FormattingEnabled = true;
+            this.cmbComprobante.Location = new System.Drawing.Point(85, 45);
+            this.cmbComprobante.Name = "cmbComprobante";
+            this.cmbComprobante.Size = new System.Drawing.Size(381, 21);
+            this.cmbComprobante.TabIndex = 1;
+            // 
+            // cmbObjetivo
+            // 
+            this.cmbObjetivo.FormattingEnabled = true;
+            this.cmbObjetivo.Location = new System.Drawing.Point(53, 72);
+            this.cmbObjetivo.Name = "cmbObjetivo";
+            this.cmbObjetivo.Size = new System.Drawing.Size(297, 21);
+            this.cmbObjetivo.TabIndex = 4;
+            // 
+            // cmbCodigoOp
+            // 
+            this.cmbCodigoOp.FormattingEnabled = true;
+            this.cmbCodigoOp.Location = new System.Drawing.Point(420, 72);
+            this.cmbCodigoOp.Name = "cmbCodigoOp";
+            this.cmbCodigoOp.Size = new System.Drawing.Size(260, 21);
+            this.cmbCodigoOp.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(472, 53);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Nro.:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 53);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Comprobante:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Objeto:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(356, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Codigo Op.:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(563, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(116, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Recibo: 0000-0000000\r\n";
+            // 
+            // date1
+            // 
+            this.date1.Location = new System.Drawing.Point(6, 19);
+            this.date1.Name = "date1";
+            this.date1.Size = new System.Drawing.Size(200, 20);
+            this.date1.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -394,14 +394,12 @@
             this.label23.TabIndex = 44;
             this.label23.Text = "Municipales";
             // 
-            // label22
+            // txtSuj
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(564, 131);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(45, 13);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "Internos";
+            this.txtSuj.Location = new System.Drawing.Point(374, 147);
+            this.txtSuj.Name = "txtSuj";
+            this.txtSuj.Size = new System.Drawing.Size(71, 20);
+            this.txtSuj.TabIndex = 14;
             // 
             // label21
             // 
@@ -411,6 +409,15 @@
             this.label21.Size = new System.Drawing.Size(64, 13);
             this.label21.TabIndex = 42;
             this.label21.Text = "Suj. No Cat.";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(564, 131);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 13);
+            this.label22.TabIndex = 43;
+            this.label22.Text = "Internos";
             // 
             // txtIIBB
             // 
@@ -439,13 +446,6 @@
             this.txtMunicipales.Name = "txtMunicipales";
             this.txtMunicipales.Size = new System.Drawing.Size(71, 20);
             this.txtMunicipales.TabIndex = 15;
-            // 
-            // txtSuj
-            // 
-            this.txtSuj.Location = new System.Drawing.Point(374, 147);
-            this.txtSuj.Name = "txtSuj";
-            this.txtSuj.Size = new System.Drawing.Size(71, 20);
-            this.txtSuj.TabIndex = 14;
             // 
             // label20
             // 
@@ -606,6 +606,22 @@
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             // 
+            // txtVencPago
+            // 
+            this.txtVencPago.Location = new System.Drawing.Point(119, 29);
+            this.txtVencPago.Name = "txtVencPago";
+            this.txtVencPago.Size = new System.Drawing.Size(220, 20);
+            this.txtVencPago.TabIndex = 0;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(23, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(90, 13);
+            this.label13.TabIndex = 51;
+            this.label13.Text = "VENC: de PAGO:";
+            // 
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(399, 29);
@@ -667,22 +683,6 @@
             this.label26.TabIndex = 46;
             this.label26.Text = "Moneda:";
             // 
-            // txtVencPago
-            // 
-            this.txtVencPago.Location = new System.Drawing.Point(119, 29);
-            this.txtVencPago.Name = "txtVencPago";
-            this.txtVencPago.Size = new System.Drawing.Size(220, 20);
-            this.txtVencPago.TabIndex = 0;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(23, 36);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(90, 13);
-            this.label13.TabIndex = 51;
-            this.label13.Text = "VENC: de PAGO:";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(117, 616);
@@ -709,6 +709,7 @@
             this.button3.TabIndex = 7;
             this.button3.Text = "CARGAR";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FacturacionForm
             // 

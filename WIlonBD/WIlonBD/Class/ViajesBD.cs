@@ -83,7 +83,7 @@ namespace WIlonBD.Class
                     wCmd.Parameters.Add(new SqlParameter("@ComprobanteTipo", SqlDbType.Char)).Value = "R";
 
                     // ComprobantePV
-                    wCmd.Parameters.Add(new SqlParameter("@ComprobantePV", SqlDbType.NVarChar)).Value = "0000";
+                    wCmd.Parameters.Add(new SqlParameter("@ComprobantePV", SqlDbType.NVarChar)).Value = DateTime.Now.Year.ToString();
 
                     // ComprobanteNumero
                     wCmd.Parameters.Add(new SqlParameter("@ComprobanteNumero", SqlDbType.NVarChar)).Value = objeto.numeroComprobante;
@@ -141,7 +141,7 @@ namespace WIlonBD.Class
                         wCmd.Parameters.Add(new SqlParameter("@IdTipoDestinatario", SqlDbType.Int)).Value = DBNull.Value;
 
                     // IdTipoTransportista
-                    if (objeto.tipoDest != 0)
+                    if (objeto.tipoTrans != 0)
                         wCmd.Parameters.Add(new SqlParameter("@IdTipoTransportista", SqlDbType.Int)).Value = objeto.tipoTrans;
                     else
                         wCmd.Parameters.Add(new SqlParameter("@IdTipoTransportista", SqlDbType.Int)).Value = DBNull.Value;

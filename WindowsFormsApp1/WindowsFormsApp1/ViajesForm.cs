@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
             var obCuilCuitDest = new TercerosBS();
 
             cmbCuilDest.DisplayMember = "Documento";
-            cmbCuilDest.ValueMember = "RazonSocial";
+            cmbCuilDest.ValueMember = "Documento";
             cmbCuilDest.DataSource = obCuilCuitDest.SeleccionarTodosDT();
             cmbCuilDest.SelectedValue = -1;
            
@@ -144,9 +144,10 @@ namespace WindowsFormsApp1
 
             Object selectedItem = cmbCuilDest.SelectedItem;
 
+            
             //validacion para los combos
-            if (cmbCuilDest.SelectedItem.ToString() != null)
-                int.TryParse(cmbCuilDest.SelectedItem.ToString(), out cuilDest);
+            if (cmbCuilDest.SelectedValue != null)
+                int.TryParse(cmbCuilDest.SelectedValue.ToString(), out cuilDest);
             if (cmbTipoDest.SelectedValue != null)
                 int.TryParse(cmbTipoDest.SelectedValue.ToString(), out tipoDest);
             if (cmbCuilTrans.SelectedValue != null)
@@ -199,7 +200,7 @@ namespace WindowsFormsApp1
             decimal valorDest = 0;
 
             decimal.TryParse(txtCantidadDest.Text, out cantidadDest);
-            decimal.TryParse(txtCantidadDest.Text, out valorDest);
+            decimal.TryParse(txtValorDest.Text, out valorDest);
 
             //guarda datos del destinatario
             obDestinatario =  viajes.crearObjeto(cuilDest, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
@@ -220,6 +221,7 @@ namespace WindowsFormsApp1
 
             decimal.TryParse(txtCantidadTrans.Text, out cantidadTrans);
             decimal.TryParse(txtValorTrans.Text, out valorTrans);
+
             //guarda datos del transportista
             obTransportista2 = viajes.crearObjeto(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
                 txtDetalleTrans2.Text, txtUnidadTrans.Text, cantidadTrans, valorTrans,
