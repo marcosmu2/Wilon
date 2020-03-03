@@ -12,159 +12,165 @@ namespace WIlonBD.Class
     public class ViajesBD : Commons.BaseDAO
     {
 
-        public int Save(Terceros objeto)
+        public bool SaveList(List<Viajes> listViajes)
         {
             StringBuilder wQuery = new StringBuilder();
             SqlCommand wCmd = new SqlCommand();
 
+            SqlTransaction sqlT = base.TransactionBegin();
+
             try
             {
-                //    wQuery = new StringBuilder("INSERT INTO [Terceros] (");
-                //    wQuery.Append("			[RazonSocial] ");
-                //    wQuery.Append("			,[Documento] ");
-                //    wQuery.Append("			,[CondicionIVA] ");
-                //    wQuery.Append("			,[Direccion] ");
-                //    wQuery.Append("			,[NroCalle] ");
-                //    wQuery.Append("			,[CodigoPostal] ");
-                //    wQuery.Append("			,[Localidad] ");
-                //    wQuery.Append("			,[Provincia] ");
-                //    wQuery.Append("			,[NroTelefono] ");
-                //    wQuery.Append("			,[Celular] ");
-                //    wQuery.Append("			,[Email] ");
-                //    wQuery.Append("			,[CondicionIIBB] ");
-                //    wQuery.Append("			,[NumeroIIBB] ");
-                //    wQuery.Append("			,[CalculaInteres] ");
-                //    wQuery.Append("			,[Tasa] ");
-                //    wQuery.Append("			,[CBU] ");
-                //    wQuery.Append(") VALUES (");
-                //    wQuery.Append("			@RazonSocial ");
-                //    wQuery.Append("			,@Documento ");
-                //    wQuery.Append("			,@CondicionIVA ");
-                //    wQuery.Append("			,@Direccion ");
-                //    wQuery.Append("			,@NroCalle ");
-                //    wQuery.Append("			,@CodigoPostal ");
-                //    wQuery.Append("			,@Localidad ");
-                //    wQuery.Append("			,@Provincia ");
-                //    wQuery.Append("			,@NroTelefono ");
-                //    wQuery.Append("			,@Celular ");
-                //    wQuery.Append("			,@Email ");
-                //    wQuery.Append("			,@CondicionIIBB ");
-                //    wQuery.Append("			,@NumeroIIBB ");
-                //    wQuery.Append("			,@CalculaInteres ");
-                //    wQuery.Append("			,@Tasa ");
-                //    wQuery.Append("			,@CBU ");
-                //    wQuery.Append(")");
-                //    wQuery.Append("SELECT @@identity");
-
-                //    #region Parameters
-
-                //    // RazonSocial
-                //    wCmd.Parameters.Add(new SqlParameter("@RazonSocial", SqlDbType.NVarChar)).Value = objeto.razonSocial;
-
-                //    // Documento
-                //    wCmd.Parameters.Add(new SqlParameter("@Documento", SqlDbType.Int)).Value = objeto.documento;
-
-                //    // CondicionIVA
-                //    if (objeto.condicionIva != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@CondicionIVA", SqlDbType.Int)).Value = objeto.condicionIva;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@CondicionIVA", SqlDbType.Int)).Value = DBNull.Value;
-
-                //    // Direccion
-                //    wCmd.Parameters.Add(new SqlParameter("@Direccion", SqlDbType.NVarChar)).Value = objeto.direccion;
-
-                //    // NroCalle
-                //    if (objeto.nro != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@NroCalle", SqlDbType.Int)).Value = objeto.nro;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@NroCalle", SqlDbType.Int)).Value = DBNull.Value;
 
 
-                //    // CodigoPostal
-                //    if (objeto.cp != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@CodigoPostal", SqlDbType.Int)).Value = objeto.cp;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@CodigoPostal", SqlDbType.Int)).Value = DBNull.Value;
+                foreach (var objeto in listViajes)
+                {
+                    wQuery = new StringBuilder();
+                    wCmd = new SqlCommand();
 
-                //    // Localidad
-                //    if (objeto.localidad != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@Localidad", SqlDbType.Int)).Value = objeto.localidad;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@Localidad", SqlDbType.Int)).Value = DBNull.Value;
+                    wQuery = new StringBuilder("INSERT INTO [Viajes] (");
+                    wQuery.Append("			[Documento] ");
+                    wQuery.Append("			,[Fecha] ");
+                    wQuery.Append("			,[ComprobanteTipo] ");
+                    wQuery.Append("			,[ComprobantePV] ");
+                    wQuery.Append("			,[ComprobanteNumero] ");
+                    wQuery.Append("			,[Detalle] ");
+                    wQuery.Append("			,[Unidad] ");
+                    wQuery.Append("			,[Cantidad] ");
+                    wQuery.Append("			,[PrecioUnitario] ");
+                    wQuery.Append("			,[ImporteDebe] ");
+                    wQuery.Append("			,[ImporteHaber] ");
+                    wQuery.Append("			,[DetalleAnio] ");
+                    wQuery.Append("			,[DetalleNumero] ");
+                    wQuery.Append("			,[PagoCobroAnio] ");
+                    wQuery.Append("			,[PagoCobroNumero] ");
+                    wQuery.Append("			,[FacturadoPV] ");
+                    wQuery.Append("			,[FacturadoNumero] ");
+                    wQuery.Append("			,[IdTipoDestinatario] ");
+                    wQuery.Append("			,[IdTipoTransportista] ");
+                    wQuery.Append(") VALUES (");
+                    wQuery.Append("			@Documento ");
+                    wQuery.Append("			,@Fecha ");
+                    wQuery.Append("			,@ComprobanteTipo ");
+                    wQuery.Append("			,@ComprobantePV ");
+                    wQuery.Append("			,@ComprobanteNumero ");
+                    wQuery.Append("			,@Detalle ");
+                    wQuery.Append("			,@Unidad ");
+                    wQuery.Append("			,@Cantidad ");
+                    wQuery.Append("			,@PrecioUnitario ");
+                    wQuery.Append("			,@ImporteDebe ");
+                    wQuery.Append("			,@ImporteHaber ");
+                    wQuery.Append("			,@DetalleAnio ");
+                    wQuery.Append("			,@DetalleNumero ");
+                    wQuery.Append("			,@PagoCobroAnio ");
+                    wQuery.Append("			,@PagoCobroNumero ");
+                    wQuery.Append("			,@FacturadoPV ");
+                    wQuery.Append("			,@FacturadoNumero ");
+                    wQuery.Append("			,@IdTipoDestinatario ");
+                    wQuery.Append("			,@IdTipoTransportista ");
+                    wQuery.Append(")");
+                    wQuery.Append("SELECT @@identity");
 
-                //    // Provincia
-                //    if (objeto.provincia != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@Provincia", SqlDbType.Int)).Value = objeto.provincia;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@Provincia", SqlDbType.Int)).Value = DBNull.Value;
+                    #region Parameters
 
-                //    // NroTelefono
-                //    if (objeto.nroTelefono != string.Empty)
-                //        wCmd.Parameters.Add(new SqlParameter("@NroTelefono", SqlDbType.NVarChar)).Value = objeto.nroTelefono;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@NroTelefono", SqlDbType.NVarChar)).Value = DBNull.Value;
+                    // Documento
+                    wCmd.Parameters.Add(new SqlParameter("@Documento", SqlDbType.NVarChar)).Value = objeto.cuil.ToString();
 
-                //    // Celular
-                //    if (objeto.cel != string.Empty)
-                //        wCmd.Parameters.Add(new SqlParameter("@Celular", SqlDbType.NVarChar)).Value = objeto.cel;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@Celular", SqlDbType.NVarChar)).Value = DBNull.Value;
+                    // Fecha
+                    wCmd.Parameters.Add(new SqlParameter("@Fecha", SqlDbType.DateTime)).Value = objeto.fecha;
 
-                //    // Email
-                //    if (objeto.email != string.Empty)
-                //        wCmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar)).Value = objeto.email;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.NVarChar)).Value = DBNull.Value;
+                    // ComprobanteTipo
+                    wCmd.Parameters.Add(new SqlParameter("@ComprobanteTipo", SqlDbType.Char)).Value = "R";
 
-                //    // CondicionIIBB
-                //    if (objeto.condicionIIBB != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@CondicionIIBB", SqlDbType.Int)).Value = objeto.condicionIIBB;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@CondicionIIBB", SqlDbType.Int)).Value = DBNull.Value;
+                    // ComprobantePV
+                    wCmd.Parameters.Add(new SqlParameter("@ComprobantePV", SqlDbType.NVarChar)).Value = "0000";
 
-                //    // NumeroIIBB
-                //    if (objeto.nroIIBB != string.Empty)
-                //        wCmd.Parameters.Add(new SqlParameter("@NumeroIIBB", SqlDbType.NVarChar)).Value = objeto.nroIIBB;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@NumeroIIBB", SqlDbType.NVarChar)).Value = DBNull.Value;
+                    // ComprobanteNumero
+                    wCmd.Parameters.Add(new SqlParameter("@ComprobanteNumero", SqlDbType.NVarChar)).Value = objeto.numeroComprobante;
 
-                //    // CalculaInteres
-                //    wCmd.Parameters.Add(new SqlParameter("@CalculaInteres", SqlDbType.Bit)).Value = objeto.calculaIntereses;
+                    // Detalle
+                    wCmd.Parameters.Add(new SqlParameter("@Detalle", SqlDbType.NVarChar)).Value = objeto.detalle;
 
+                    // Detalle
+                    wCmd.Parameters.Add(new SqlParameter("@Unidad", SqlDbType.NVarChar)).Value = objeto.unidad;
 
-                //    // Tasa
-                //    if (objeto.tasa != 0)
-                //        wCmd.Parameters.Add(new SqlParameter("@Tasa", SqlDbType.NVarChar)).Value = objeto.tasa;
-                //    else
-                //        wCmd.Parameters.Add(new SqlParameter("@Tasa", SqlDbType.NVarChar)).Value = DBNull.Value;
+                    //Cantidad
+                    wCmd.Parameters.Add(new SqlParameter("@Cantidad", SqlDbType.Int)).Value = objeto.cantidad;
 
-                //    // CBU
-                //    wCmd.Parameters.Add(new SqlParameter("@CBU", SqlDbType.NVarChar)).Value = objeto.cbu;
+                    //PrecioUnitario
+                    wCmd.Parameters.Add(new SqlParameter("@PrecioUnitario", SqlDbType.Int)).Value = objeto.precioUnitario;
 
-                //    #endregion
+                    // ImporteDebe
+                    if (objeto.debeImporte != 0)
+                        wCmd.Parameters.Add(new SqlParameter("@ImporteDebe", SqlDbType.Int)).Value = objeto.debeImporte;
+                    else
+                        wCmd.Parameters.Add(new SqlParameter("@ImporteDebe", SqlDbType.Int)).Value = 0;
 
-                wCmd.CommandText = wQuery.ToString();
-            if (base.mSqlTransaction == null)
-                wCmd.Connection = base.GetOpenedConection();
-            else
-            {
-                wCmd.Connection = (SqlConnection)base.mSqlTransaction.Connection;
-                wCmd.Transaction = (SqlTransaction)base.mSqlTransaction;
-            }
-            wCmd.CommandTimeout = wCmd.Connection.ConnectionTimeout;
+                    // ImporteDebe
+                    if (objeto.haberImporte != 0)
+                        wCmd.Parameters.Add(new SqlParameter("@ImporteHaber", SqlDbType.Int)).Value = objeto.haberImporte;
+                    else
+                        wCmd.Parameters.Add(new SqlParameter("@ImporteHaber", SqlDbType.Int)).Value = 0;
 
-            int wRtn = Convert.ToInt32(wCmd.ExecuteScalar());
+                    // DetalleAnio
+                    if (objeto.detalleAnio != 0)
+                        wCmd.Parameters.Add(new SqlParameter("@DetalleAnio", SqlDbType.Int)).Value = objeto.detalleAnio;
+                    else
+                        wCmd.Parameters.Add(new SqlParameter("@DetalleAnio", SqlDbType.Int)).Value = DBNull.Value;
 
-            return wRtn;
+                    // DetalleNumero
+                    wCmd.Parameters.Add(new SqlParameter("@DetalleNumero", SqlDbType.NVarChar)).Value = objeto.detalleNumero;
+
+                    // PagoCobroAnio
+                    if (objeto.detalleAnio != 0)
+                        wCmd.Parameters.Add(new SqlParameter("@PagoCobroAnio", SqlDbType.Int)).Value = objeto.pagoCobroAnio;
+                    else
+                        wCmd.Parameters.Add(new SqlParameter("@PagoCobroAnio", SqlDbType.Int)).Value = DBNull.Value;
+
+                    // PagoCobroNumero
+                    wCmd.Parameters.Add(new SqlParameter("@PagoCobroNumero", SqlDbType.NVarChar)).Value = objeto.pagoCobroNumero;
+
+                    wCmd.Parameters.Add(new SqlParameter("@FacturadoPV", SqlDbType.NVarChar)).Value = objeto.facturadoPV;
+
+                    wCmd.Parameters.Add(new SqlParameter("@FacturadoNumero", SqlDbType.NVarChar)).Value = objeto.facturadoNumero;
+
+                    // IdTipoDestinatario
+                    if (objeto.tipoDest != 0)
+                        wCmd.Parameters.Add(new SqlParameter("@IdTipoDestinatario", SqlDbType.Int)).Value = objeto.tipoDest;
+                    else
+                        wCmd.Parameters.Add(new SqlParameter("@IdTipoDestinatario", SqlDbType.Int)).Value = DBNull.Value;
+
+                    // IdTipoTransportista
+                    if (objeto.tipoDest != 0)
+                        wCmd.Parameters.Add(new SqlParameter("@IdTipoTransportista", SqlDbType.Int)).Value = objeto.tipoTrans;
+                    else
+                        wCmd.Parameters.Add(new SqlParameter("@IdTipoTransportista", SqlDbType.Int)).Value = DBNull.Value;
+
+                    #endregion
+
+                    wCmd.CommandText = wQuery.ToString();
+
+                    wCmd.Connection = (SqlConnection)sqlT.Connection;
+                    wCmd.Transaction = (SqlTransaction)sqlT;
+
+                    wCmd.CommandTimeout = wCmd.Connection.ConnectionTimeout;
+
+                    wCmd.ExecuteScalar();
+                }
+
+                sqlT.Commit();
+
+                return true;
             }
             catch (SqlException exp)
             {
-                throw new Exception(exp.Message);
+                sqlT.Rollback();
+
+                return false;
             }
-            finally
-            {
-                if (base.mSqlTransaction == null)
-                    base.CloseConection();
+            finally {
+                
+                sqlT.Dispose();
             }
         }
     }

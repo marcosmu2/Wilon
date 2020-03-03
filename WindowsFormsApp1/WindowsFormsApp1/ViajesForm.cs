@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -136,19 +137,32 @@ namespace WindowsFormsApp1
             int tipoTrans = 0;
             char tipoComprobante = 'R';
 
-            var obDestinatario = new ViajesBS();
-            var obTransportista = new ViajesBS();
-            var obTransportista2 = new ViajesBS();
+            var viajes = new ViajesBS();
+            var obDestinatario = new Viajes();
+            var obTransportista = new Viajes();
+            var obTransportista2 = new Viajes();
+
+            Object selectedItem = cmbCuilDest.SelectedItem;
 
             //validacion para los combos
-            if (cmbCuilDest.SelectedValue != null)
-                int.TryParse(cmbCuilDest.SelectedValue.ToString(), out cuilDest);
+            if (cmbCuilDest.SelectedItem.ToString() != null)
+                int.TryParse(cmbCuilDest.SelectedItem.ToString(), out cuilDest);
             if (cmbTipoDest.SelectedValue != null)
                 int.TryParse(cmbTipoDest.SelectedValue.ToString(), out tipoDest);
             if (cmbCuilTrans.SelectedValue != null)
                 int.TryParse(cmbCuilTrans.SelectedValue.ToString(), out cuilTrans);
             if (cmbCuilTrans.SelectedValue != null)
                 int.TryParse(cmbTipoTrans.SelectedValue.ToString(), out tipoTrans);
+
+            if (txtRemito.Text != "")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un Numero de Remito");
+                return;
+            }
 
             if (txtCantidadTrans.Text != "") 
             {
@@ -179,20 +193,41 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            List<Viajes> lstViajes = new List<Viajes>();
+
+            decimal cantidadDest = 0;
+            decimal valorDest = 0;
+
+            decimal.TryParse(txtCantidadDest.Text, out cantidadDest);
+            decimal.TryParse(txtCantidadDest.Text, out valorDest);
+
             //guarda datos del destinatario
-            obDestinatario.guardarDestinatario(cuilDest, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
-                txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
-                decimal.Parse(txtTotalDest.Text), 0, 0, 0, 0, 0, 0, 0, tipoDest, 0);
+            obDestinatario =  viajes.crearObjeto(cuilDest, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
+                    txtDetalleDest.Text, txtUnidadDest.Text, cantidadDest, valorDest,
+                    valorDest, 0, 0, 0, 0, 0, 0, 0, tipoDest, 0);
 
-            //guarda datos de la lista transportista
-            obTransportista.guardarTransportista(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
-                txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
-                decimal.Parse(txtTotalDest.Text), 0, 0, 0, 0, 0, 0, 0, tipoDest, 0);
+            lstViajes.Add(obDestinatario);
 
+            ////guarda datos de la lista transportista
+            //obTransportista = viajes.crearObjeto(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
+            //    txtDetalleDest.Text, txtUnidadDest.Text, decimal.Parse(txtCantidadDest.Text), decimal.Parse(txtValorDest.Text),
+            //    decimal.Parse(txtTotalDest.Text), 0, 0, 0, 0, 0, 0, 0, tipoDest, 0);
+
+            //lstViajes.Add(obTransportista);
+
+            decimal cantidadTrans = 0;
+            decimal valorTrans = 0;
+
+            decimal.TryParse(txtCantidadTrans.Text, out cantidadTrans);
+            decimal.TryParse(txtValorTrans.Text, out valorTrans);
             //guarda datos del transportista
-            obTransportista2.guardarTransportista2(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
-                txtDetalleTrans2.Text, txtUnidadTrans.Text, decimal.Parse(txtCantidadTrans.Text), decimal.Parse(txtValorTrans.Text),
-                0, decimal.Parse(txtTotalTrans.Text), 0, 0, 0, 0, 0, 0, 0, tipoTrans);
+            obTransportista2 = viajes.crearObjeto(cuilTrans, date1.Value, tipoComprobante, 0, int.Parse(txtRemito.Text),
+                txtDetalleTrans2.Text, txtUnidadTrans.Text, cantidadTrans, valorTrans,
+                0, valorTrans, 0, 0, 0, 0, 0, 0, 0, tipoTrans);
+
+            lstViajes.Add(obTransportista2);
+
+            viajes.guardarLista(lstViajes);
 
         }
 
