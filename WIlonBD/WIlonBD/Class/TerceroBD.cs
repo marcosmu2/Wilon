@@ -200,13 +200,12 @@ namespace WIlonBD.Class
                 wSqlDataReader.Close();
 
                 //crear lista
-                List<RazonSocial> razon = new List<RazonSocial>();
+                List<Terceros> razon = new List<Terceros>();
 
                 //llenar lista
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    RazonSocial rs = new RazonSocial();
-                    rs.id = Convert.ToInt32(row ["Id"]);
+                    Terceros rs = new Terceros();
                     rs.documento = Convert.ToInt64(row ["Documento"]);
                     rs.razonSocial = row ["RazonSocial"].ToString();
 
