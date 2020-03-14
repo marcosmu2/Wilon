@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNombreDest = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.date2 = new System.Windows.Forms.DateTimePicker();
             this.btnMenos = new System.Windows.Forms.Button();
             this.btnMas = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@
             this.txtNombreTrans = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -266,6 +266,7 @@
             // 
             // txtNombreDest
             // 
+            this.txtNombreDest.Enabled = false;
             this.txtNombreDest.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtNombreDest.Location = new System.Drawing.Point(228, 33);
             this.txtNombreDest.Name = "txtNombreDest";
@@ -307,6 +308,15 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "TRANSPORTISTA";
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(6, 98);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(701, 112);
+            this.listView1.TabIndex = 20;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // date2
             // 
@@ -518,6 +528,7 @@
             // 
             // txtNombreTrans
             // 
+            this.txtNombreTrans.Enabled = false;
             this.txtNombreTrans.Location = new System.Drawing.Point(228, 33);
             this.txtNombreTrans.Name = "txtNombreTrans";
             this.txtNombreTrans.Size = new System.Drawing.Size(342, 20);
@@ -542,15 +553,6 @@
             this.btnAceptar.Text = "ACEPTAR";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(6, 98);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(701, 112);
-            this.listView1.TabIndex = 20;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // ViajesForm
             // 

@@ -179,9 +179,7 @@ namespace WIlonBD.Class
                 
                 wQuery = new StringBuilder("SELECT Id, ");
                 wQuery.Append("			Documento, RazonSocial");
-                wQuery.Append("			FROM [Terceros] ");
-
-                
+                wQuery.Append("			FROM [Terceros] ");              
 
 
                 wCmd.CommandText = wQuery.ToString();

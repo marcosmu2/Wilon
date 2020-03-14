@@ -27,8 +27,8 @@ namespace WindowsFormsApp1
 
         public void LlenarCombos()
         {
-            var obTipoDest = new TipoDestinatarioBS();
-            DataTable dt = obTipoDest.SeleccionarTodosDT();
+            var obCuilCuitDest = new TercerosBS();
+            DataTable dt = obCuilCuitDest.SeleccionarTodosDT();
 
             //llenar lista
             foreach (DataRow row in dt.Rows)
@@ -41,7 +41,6 @@ namespace WindowsFormsApp1
             }
 
             //Combo CUIL/CUIT Destinatario
-            var obCuilCuitDest = new TercerosBS();
 
             cmbCuilDest.DisplayMember = "Documento";
             cmbCuilDest.ValueMember = "Documento";
@@ -57,7 +56,7 @@ namespace WindowsFormsApp1
             cmbCuilTrans.SelectedValue = -1;
 
             //Combo Tipo Destinatario
-
+            var obTipoDest = new TipoDestinatarioBS();
             cmbTipoDest.DisplayMember = "Descripcion";
             cmbTipoDest.ValueMember = "Id";
             cmbTipoDest.DataSource = obTipoDest.SeleccionarTodosDT();
@@ -77,13 +76,19 @@ namespace WindowsFormsApp1
         {
             if (cmbCuilDest.SelectedValue != null)      //cambia el txtNombreDest
             {
-                txtNombreDest.Text = cmbCuilDest.SelectedValue.ToString();
-                txtNombreDest.Enabled = false;
+                var cuilSeleccionado = cmbCuilDest.SelectedValue.ToString();
+
+                foreach (Terceros item in razon)
+                {
+                    if (item.documento.ToString() == cuilSeleccionado) {
+                        txtNombreDest.Text = item.razonSocial;
+                    }
+                }
+
             }
             else
             {
                 txtNombreDest.Text = "";
-                txtNombreDest.Enabled = true;
             }
         }
 
@@ -231,6 +236,8 @@ namespace WindowsFormsApp1
 
             //lstViajes.Add(obTransportista);
 
+
+
             decimal cantidadTrans = 0;
             decimal valorTrans = 0;
 
@@ -249,7 +256,7 @@ namespace WindowsFormsApp1
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
-        {
+        {           
             Close();
         }
     }
