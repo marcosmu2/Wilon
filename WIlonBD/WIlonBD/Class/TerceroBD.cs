@@ -199,19 +199,6 @@ namespace WIlonBD.Class
                 dataTable.Load(wSqlDataReader);
                 wSqlDataReader.Close();
 
-                //crear lista
-                List<Terceros> razon = new List<Terceros>();
-
-                //llenar lista
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    Terceros rs = new Terceros();
-                    rs.documento = Convert.ToInt64(row ["Documento"]);
-                    rs.razonSocial = row ["RazonSocial"].ToString();
-
-                    razon.Add(rs);
-                }
-
                 return dataTable;
             }
             catch (SqlException exp)

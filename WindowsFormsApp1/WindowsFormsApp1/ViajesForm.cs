@@ -14,7 +14,10 @@ using WilonBussines;
 namespace WindowsFormsApp1
 {
     public partial class ViajesForm : Form
-    {
+    {   
+        //crear lista
+        List<Terceros> razon = new List<Terceros>();
+
         public ViajesForm()
         {
             InitializeComponent();
@@ -24,6 +27,19 @@ namespace WindowsFormsApp1
 
         public void LlenarCombos()
         {
+            var obTipoDest = new TipoDestinatarioBS();
+            DataTable dt = obTipoDest.SeleccionarTodosDT();
+
+            //llenar lista
+            foreach (DataRow row in dt.Rows)
+            {
+                Terceros rs = new Terceros();
+                rs.documento = Convert.ToInt64(row["Documento"]);
+                rs.razonSocial = row["RazonSocial"].ToString();
+
+                razon.Add(rs);
+            }
+
             //Combo CUIL/CUIT Destinatario
             var obCuilCuitDest = new TercerosBS();
 
@@ -41,7 +57,6 @@ namespace WindowsFormsApp1
             cmbCuilTrans.SelectedValue = -1;
 
             //Combo Tipo Destinatario
-            var obTipoDest = new TipoDestinatarioBS();
 
             cmbTipoDest.DisplayMember = "Descripcion";
             cmbTipoDest.ValueMember = "Id";
