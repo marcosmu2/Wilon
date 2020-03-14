@@ -170,14 +170,18 @@ namespace WIlonBD.Class
 
         public DataTable SelectAll()
         {
+            
             StringBuilder wQuery = new StringBuilder();
             SqlCommand wCmd = new SqlCommand();
 
             try
             {
+                
                 wQuery = new StringBuilder("SELECT Id, ");
                 wQuery.Append("			Documento, RazonSocial");
                 wQuery.Append("			FROM [Terceros] ");
+
+                
 
 
                 wCmd.CommandText = wQuery.ToString();
@@ -195,6 +199,20 @@ namespace WIlonBD.Class
                 dataTable.Load(wSqlDataReader);
                 wSqlDataReader.Close();
 
+                //crear lista
+                List<RazonSocial> razon = new List<RazonSocial>();
+
+                //llenar lista
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    RazonSocial rs = new RazonSocial();
+                    rs.id = Convert.ToInt32(row ["Id"]);
+                    rs.documento = Convert.ToInt64(row ["Documento"]);
+                    rs.razonSocial = row ["RazonSocial"].ToString();
+
+                    razon.Add(rs);
+                }
+
                 return dataTable;
             }
             catch (SqlException exp)
@@ -208,6 +226,6 @@ namespace WIlonBD.Class
 
             }
         }
-
+        
     }
 }
