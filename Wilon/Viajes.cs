@@ -8,7 +8,7 @@ namespace Wilon
 {
     public class Viajes
     {
-        public int cuil;
+        public string cuil;
         public DateTime fecha;
         public char tipoComprobante;
         public int PVComprobante;

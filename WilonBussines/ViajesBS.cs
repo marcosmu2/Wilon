@@ -12,7 +12,7 @@ namespace WilonBussines
     public class ViajesBS
     {
 
-        public Viajes crearObjeto( int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
+        public Viajes crearObjeto( string cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
             string detalle, string unidad, decimal cantidad, decimal precioUnitario, decimal debeImporte, decimal haberImporte,
             int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
             int tipoDest,int tipoTrans, SqlTransaction sqlTransaction = null)
@@ -42,70 +42,12 @@ namespace WilonBussines
             return obDestinatario;
         }
 
-        public bool guardarLista(List<Viajes> listViajes) {
+        public bool guardarLista(List<Viajes> listViajes) 
+        {
 
             ViajesBD viajesBD = new ViajesBD();
             return viajesBD.SaveList(listViajes);
 
         }
-
-
-
-        //public void guardarTransportista(int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
-        //    string detalle, string unidad, decimal cantidad, decimal precioUnitario, decimal debeImporte, decimal haberImporte,
-        //    int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
-        //    int tipoDest, int tipoTrans)
-        //{
-        //    var obTransportista = new Viajes();
-
-        //    obTransportista.cuil = cuil;
-        //    obTransportista.fecha = fecha;
-        //    obTransportista.tipoComprobante = tipoComprobante;
-        //    obTransportista.PVComprobante = PVComprobante;
-        //    obTransportista.numeroComprobante = numeroComprobante;
-        //    obTransportista.detalle = detalle;
-        //    obTransportista.unidad = unidad;
-        //    obTransportista.cantidad = cantidad;
-        //    obTransportista.precioUnitario = precioUnitario;
-        //    obTransportista.debeImporte = debeImporte;
-        //    obTransportista.haberImporte = haberImporte;
-        //    obTransportista.detalleAnio = detalleAnio;
-        //    obTransportista.detalleNumero = detalleNumero;
-        //    obTransportista.pagoCobroAnio = pagoCobroAnio;
-        //    obTransportista.pagoCobroNumero = pagoCobroNumero;
-        //    obTransportista.facturadoPV = facturadoPV;
-        //    obTransportista.facturadoNumero = facturadoNumero;
-        //    obTransportista.tipoDest = tipoDest;
-        //    obTransportista.tipoTrans = tipoTrans;
-        //}
-
-        //public void guardarTransportista2(int cuil, DateTime fecha, char tipoComprobante, int PVComprobante, int numeroComprobante,
-        //    string detalle, string unidad, decimal cantidad, decimal precioUnitario, decimal debeImporte, decimal haberImporte,
-        //    int detalleAnio, int detalleNumero, int pagoCobroAnio, int pagoCobroNumero, int facturadoPV, int facturadoNumero,
-        //    int tipoDest, int tipoTrans)
-        //{
-        //    var obTransporitista2 = new Viajes();
-
-        //    obTransporitista2.cuil = cuil;
-        //    obTransporitista2.fecha = fecha;
-        //    obTransporitista2.tipoComprobante = tipoComprobante;
-        //    obTransporitista2.PVComprobante = PVComprobante;
-        //    obTransporitista2.numeroComprobante = numeroComprobante;
-        //    obTransporitista2.detalle = detalle;
-        //    obTransporitista2.unidad = unidad;
-        //    obTransporitista2.cantidad = cantidad;
-        //    obTransporitista2.precioUnitario = precioUnitario;
-        //    obTransporitista2.debeImporte = debeImporte;
-        //    obTransporitista2.haberImporte = haberImporte;
-        //    obTransporitista2.detalleAnio = detalleAnio;
-        //    obTransporitista2.detalleNumero = detalleNumero;
-        //    obTransporitista2.pagoCobroAnio = pagoCobroAnio;
-        //    obTransporitista2.pagoCobroNumero = pagoCobroNumero;
-        //    obTransporitista2.facturadoPV = facturadoPV;
-        //    obTransporitista2.facturadoNumero = facturadoNumero;
-        //    obTransporitista2.tipoDest = tipoDest;
-        //    obTransporitista2.tipoTrans = tipoTrans;
-        //}
-
     }
 }

@@ -62,7 +62,7 @@ namespace WIlonBD.Class
                 wCmd.Parameters.Add(new SqlParameter("@RazonSocial", SqlDbType.NVarChar)).Value = objeto.razonSocial;
 
                 // Documento
-                wCmd.Parameters.Add(new SqlParameter("@Documento", SqlDbType.Int)).Value = objeto.documento;
+                wCmd.Parameters.Add(new SqlParameter("@Documento", SqlDbType.NVarChar)).Value = objeto.documento;
 
                 // CondicionIVA
                 if (objeto.condicionIva != 0)
@@ -168,7 +168,7 @@ namespace WIlonBD.Class
             }
         }
 
-        public DataTable SelectAll()
+        public DataTable SelectAll()        //trae de la base de datos id, documento y razon social
         {
             
             StringBuilder wQuery = new StringBuilder();

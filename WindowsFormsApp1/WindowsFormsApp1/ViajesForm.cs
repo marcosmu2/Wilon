@@ -30,11 +30,11 @@ namespace WindowsFormsApp1
             var obCuilCuitDest = new TercerosBS();
             DataTable dt = obCuilCuitDest.SeleccionarTodosDT();
 
-            //llenar lista
+            //llenar lista con datatable
             foreach (DataRow row in dt.Rows)
             {
                 Terceros rs = new Terceros();
-                rs.documento = Convert.ToInt64(row["Documento"]);
+                rs.documento = row["Documento"].ToString();
                 rs.razonSocial = row["RazonSocial"].ToString();
 
                 razon.Add(rs);
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
             var obCuilCuitTrans = new TercerosBS();
 
             cmbCuilTrans.DisplayMember = "Documento";
-            cmbCuilTrans.ValueMember = "RazonSocial";
+            cmbCuilTrans.ValueMember = "Documento";
             cmbCuilTrans.DataSource = obCuilCuitTrans.SeleccionarTodosDT();
             cmbCuilTrans.SelectedValue = -1;
 
@@ -80,11 +80,11 @@ namespace WindowsFormsApp1
 
                 foreach (Terceros item in razon)
                 {
-                    if (item.documento.ToString() == cuilSeleccionado) {
+                    if (item.documento.ToString() == cuilSeleccionado) 
+                    {
                         txtNombreDest.Text = item.razonSocial;
                     }
                 }
-
             }
             else
             {
@@ -94,15 +94,21 @@ namespace WindowsFormsApp1
 
         private void cmbCuilTrans_SelectedIndexChanged(object sender, EventArgs e)      //cambia el txtNombreDest
         {
-            if (cmbCuilTrans.SelectedValue != null)      
+            if (cmbCuilTrans.SelectedValue != null)
             {
-                txtNombreTrans.Text = cmbCuilTrans.SelectedValue.ToString();
-                txtNombreTrans.Enabled = false;
+                var cuilSeleccionado = cmbCuilTrans.SelectedValue.ToString();
+
+                foreach (Terceros item in razon)
+                {
+                    if (item.documento.ToString() == cuilSeleccionado)
+                    {
+                        txtNombreTrans.Text = item.razonSocial;
+                    }
+                }
             }
             else
             {
                 txtNombreTrans.Text = "";
-                txtNombreTrans.Enabled = true;
             }
         }
 
@@ -151,8 +157,8 @@ namespace WindowsFormsApp1
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            int cuilDest = 0;
-            int cuilTrans = 0;
+            string cuilDest = "";
+            string cuilTrans = "";
             int tipoDest = 0;
             int tipoTrans = 0;
             char tipoComprobante = 'R';
@@ -164,15 +170,15 @@ namespace WindowsFormsApp1
 
             Object selectedItem = cmbCuilDest.SelectedItem;
 
-            
+
             //validacion para los combos
             if (cmbCuilDest.SelectedValue != null)
-                int.TryParse(cmbCuilDest.SelectedValue.ToString(), out cuilDest);
+                cuilDest = cmbCuilDest.SelectedValue.ToString();
             if (cmbTipoDest.SelectedValue != null)
                 int.TryParse(cmbTipoDest.SelectedValue.ToString(), out tipoDest);
             if (cmbCuilTrans.SelectedValue != null)
-                int.TryParse(cmbCuilTrans.SelectedValue.ToString(), out cuilTrans);
-            if (cmbCuilTrans.SelectedValue != null)
+                cuilTrans = cmbCuilTrans.SelectedValue.ToString();
+            if (cmbTipoTrans.SelectedValue != null)
                 int.TryParse(cmbTipoTrans.SelectedValue.ToString(), out tipoTrans);
 
             if (txtRemito.Text != "")
@@ -253,6 +259,7 @@ namespace WindowsFormsApp1
 
             viajes.guardarLista(lstViajes);
 
+            Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

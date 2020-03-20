@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            long documento;
+            
             decimal tasa;
             int nrodomicilio; 
             int cp;
@@ -82,17 +82,9 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            if (long.TryParse(txtDocumento.Text, out documento))              //validacion numero de CUIL/CUIT
+            if (txtDocumento.Text != "")              //validacion numero de CUIL/CUIT
             {
-                if (documento > 20000000000)
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("Debe ingresar un numero de CUIL/CUIT");
-                    return;
-                }
+                
             }
             else
             {
@@ -114,7 +106,7 @@ namespace WindowsFormsApp1
             if (cmbCondIIBB.SelectedValue != null)
                 int.TryParse(cmbCondIIBB.SelectedValue.ToString(), out CondIIBB);
 
-            obTerceros.Guardar(txtNombre.Text, documento, CondIVA, txtDireccion.Text, nrodomicilio, cp, provincia, localidad, txtNroTelefono.Text, txtCel.Text,
+            obTerceros.Guardar(txtNombre.Text, txtDocumento.Text, CondIVA, txtDireccion.Text, nrodomicilio, cp, provincia, localidad, txtNroTelefono.Text, txtCel.Text,
                 txtEmail.Text, CondIIBB, txtNroIIBB.Text, calculaInteres, tasa, TxtCbu.Text);      //llama al metodo guardar
 
             Close();
