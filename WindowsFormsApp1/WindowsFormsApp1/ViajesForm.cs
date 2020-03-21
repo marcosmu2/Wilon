@@ -171,37 +171,25 @@ namespace WindowsFormsApp1
 
         }
 
-        private void btnMenos_Click(object sender, EventArgs e)     //elimina elementos de la lista
+        private void btnMenos_Click(object sender, EventArgs e)     
         {
-            
+            Viajes borrar = new Viajes();
+
             foreach (ListViewItem item in listView1.SelectedItems)
             {
                 int a = int.Parse(item.SubItems[1].Text);
-                item.Remove();
+                item.Remove();          //elimina fila del listview
 
                 foreach (Viajes objeto in listaTransportista)
                 {
-
                     if (a == objeto.detalleNumero)
                     {
-                        listaTransportista.Remove(objeto);
-                        
+                        borrar = objeto;
                     }
                 }
-
+                listaTransportista.Remove(borrar);      //elimina objeto de la listaTransportista (para guardar)
             }
-
-            //foreach (Viajes item in listaTransportista)
-            //{
-                
-            //    //string t= objeto.SubItems[2].ToString();
-            //    if (t == item.detalleNumero.ToString())
-            //    {
-
-
-            //    }
-            //}
-
+                        
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
