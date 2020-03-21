@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
     {   
         //crear lista
         List<Terceros> razon = new List<Terceros>();
+        List<Viajes> listaTransportista = new List<Viajes>();
 
         public ViajesForm()
         {
@@ -133,6 +134,25 @@ namespace WindowsFormsApp1
                 return;
             }
 
+            //Agregar a lista listaTransportista para guardar
+            Viajes objetoLista = new Viajes();
+
+            objetoLista.fecha = date2.Value;
+            objetoLista.detalleNumero = int.Parse(txtComprobanteTrans.Text);
+            objetoLista.detalle = txtDetalleTrans.Text;
+            int importe = int.Parse(txtImporteTrans.Text);
+
+            if (importe > 0)
+            {
+                objetoLista.debeImporte = importe;
+            }
+            else
+            {
+                objetoLista.haberImporte = importe;
+            }
+
+            listaTransportista.Add(objetoLista);
+
             ListViewItem item = new ListViewItem(date2.Value.ToString("dd/MM/yyyy"));   //crea los items
             item.SubItems.Add(txtComprobanteTrans.Text);    //crea los subitems
             item.SubItems.Add(txtDetalleTrans.Text);
@@ -145,14 +165,43 @@ namespace WindowsFormsApp1
 
             listView1.Items.AddRange(new ListViewItem[] { item });  //se agregan los items al listview
 
+            txtComprobanteTrans.Text = "";
+            txtDetalleTrans.Text = "";
+            txtImporteTrans.Text = "";
+
         }
 
         private void btnMenos_Click(object sender, EventArgs e)     //elimina elementos de la lista
         {
-            foreach(ListViewItem item in listView1.SelectedItems)
+            
+            foreach (ListViewItem item in listView1.SelectedItems)
             {
+                int a = int.Parse(item.SubItems[1].Text);
                 item.Remove();
+
+                foreach (Viajes objeto in listaTransportista)
+                {
+
+                    if (a == objeto.detalleNumero)
+                    {
+                        listaTransportista.Remove(objeto);
+                        
+                    }
+                }
+
             }
+
+            //foreach (Viajes item in listaTransportista)
+            //{
+                
+            //    //string t= objeto.SubItems[2].ToString();
+            //    if (t == item.detalleNumero.ToString())
+            //    {
+
+
+            //    }
+            //}
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -181,45 +230,27 @@ namespace WindowsFormsApp1
             if (cmbTipoTrans.SelectedValue != null)
                 int.TryParse(cmbTipoTrans.SelectedValue.ToString(), out tipoTrans);
 
-            if (txtRemito.Text != "")
-            {
-
-            }
-            else
+            if (string.IsNullOrWhiteSpace(txtRemito.Text))
             {
                 MessageBox.Show("Ingrese un Numero de Remito");
                 return;
             }
-
-            if (txtCantidadTrans.Text != "") 
-            {
-
-            }
-            else
+            if (string.IsNullOrWhiteSpace(txtCantidadTrans.Text)) 
             {
                 MessageBox.Show("Ingrese una Cantidad para el Transportista");
                 return;
             }
-
-            if (txtValorTrans.Text != "")
-            {
-
-            }
-            else
+            if (string.IsNullOrWhiteSpace(txtValorTrans.Text))
             {
                 MessageBox.Show("Ingrese una Valor para el Transportista");
                 return;
             }
-            if (txtDetalleTrans2.Text != "")
-            {
-
-            }
-            else
+            if (string.IsNullOrWhiteSpace(txtDetalleTrans2.Text))
             {
                 MessageBox.Show("Ingrese una Detalle para el Transportista");
                 return;
             }
-
+            
             List<Viajes> lstViajes = new List<Viajes>();
 
             decimal cantidadDest = 0;

@@ -28,5 +28,6 @@ namespace Wilon
         public int tipoDest;
         public int tipoTrans;
 
+
     }
 }
