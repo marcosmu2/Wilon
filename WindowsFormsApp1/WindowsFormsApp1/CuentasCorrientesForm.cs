@@ -47,64 +47,58 @@ namespace WindowsFormsApp1
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
-            
-            var obViajes = new ViajesBS();
-            DataTable dt = obViajes.SeleccionarPorDocumento(cmbDocumento.SelectedValue.ToString());      //filtra por parametro
-            
-            if(cmbDocumento.SelectedValue != null)
+
+            if (cmbDocumento.SelectedValue != null)
             {
+                var obViajes = new ViajesBS();
+                DataTable dt = obViajes.SeleccionarPorDocumento(cmbDocumento.SelectedValue.ToString());      //filtra por parametro
+
                 listaCtaCte.Clear();
 
                 foreach (DataRow row in dt.Rows)
                 {
-                        Viajes rs = new Viajes();
+                    Viajes rs = new Viajes();
 
-                        rs.fecha = Convert.ToDateTime(row["Fecha"]);
-                        rs.numeroComprobante = Convert.ToInt32(row["ComprobanteNumero"]);
-                        rs.detalle = row["Detalle"].ToString();
-                        rs.unidad = row["Unidad"].ToString();
-                        rs.cantidad = Convert.ToDecimal(row["Cantidad"]);
-                        rs.precioUnitario= Convert.ToDecimal(row["PrecioUnitario"]);
-                        rs.debeImporte = Convert.ToDecimal(row["ImporteDebe"]);
-                        rs.haberImporte = Convert.ToDecimal(row["ImporteHaber"]);
+                    rs.fecha = Convert.ToDateTime(row["Fecha"]);
+                    rs.numeroComprobante = Convert.ToInt32(row["ComprobanteNumero"]);
+                    rs.detalle = row["Detalle"].ToString();
+                    rs.unidad = row["Unidad"].ToString();
+                    rs.cantidad = Convert.ToDecimal(row["Cantidad"]);
+                    rs.precioUnitario = Convert.ToDecimal(row["PrecioUnitario"]);
+                    rs.debeImporte = Convert.ToDecimal(row["ImporteDebe"]);
+                    rs.haberImporte = Convert.ToDecimal(row["ImporteHaber"]);
 
-                        listaCtaCte.Add(rs);
+                    listaCtaCte.Add(rs);
                 }
 
+                listView1.Clear();
+
+                listView1.View = View.Details;      //mostrar la vista en modo detalle
+                listView1.FullRowSelect = true;     //selecciona toda la fila y no solo la celda
+
+                listView1.Columns.Add("Fecha", 75);     //crea columnas
+                listView1.Columns.Add("Comprobante Nº", 95);
+                listView1.Columns.Add("Detalle", 250);
+                listView1.Columns.Add("Unidad", 70);
+                listView1.Columns.Add("Cantidad", 70);
+                listView1.Columns.Add("Valor Un.", 70);
+                listView1.Columns.Add("DEBE", 70);
+                listView1.Columns.Add("HABER", 70);
+
+                foreach (var objeto in listaCtaCte)
+                {
+                    ListViewItem item = new ListViewItem(objeto.fecha.ToString("dd/MM/yyyy"));   //crea los items
+                    item.SubItems.Add(objeto.numeroComprobante.ToString());    //crea los subitems
+                    item.SubItems.Add(objeto.detalle.ToString());
+                    item.SubItems.Add(objeto.unidad.ToString());
+                    item.SubItems.Add(objeto.cantidad.ToString());
+                    item.SubItems.Add(objeto.precioUnitario.ToString());
+                    item.SubItems.Add(objeto.debeImporte.ToString());
+                    item.SubItems.Add(objeto.haberImporte.ToString());
+
+                    listView1.Items.AddRange(new ListViewItem[] { item });  //se agregan los items al listview
+                }
             }
-
-            listView1.Clear();
-
-            listView1.View = View.Details;      //mostrar la vista en modo detalle
-            listView1.FullRowSelect = true;     //selecciona toda la fila y no solo la celda
-
-            listView1.Columns.Add("Fecha", 75);     //crea columnas
-            listView1.Columns.Add("Comprobante Nº", 95);
-            listView1.Columns.Add("Detalle", 250);
-            listView1.Columns.Add("Unidad", 70);
-            listView1.Columns.Add("Cantidad", 70);
-            listView1.Columns.Add("Valor Un.", 70);
-            listView1.Columns.Add("DEBE", 70);
-            listView1.Columns.Add("HABER", 70);
-
-            foreach (var objeto in listaCtaCte)
-            {
-
-                ListViewItem item = new ListViewItem(objeto.fecha.ToString("dd/MM/yyyy"));   //crea los items
-                item.SubItems.Add(objeto.numeroComprobante.ToString());    //crea los subitems
-                item.SubItems.Add(objeto.detalle.ToString());
-                item.SubItems.Add(objeto.unidad.ToString());
-                item.SubItems.Add(objeto.cantidad.ToString());
-                item.SubItems.Add(objeto.precioUnitario.ToString());
-                item.SubItems.Add(objeto.debeImporte.ToString());
-                item.SubItems.Add(objeto.haberImporte.ToString());
-
-
-
-                listView1.Items.AddRange(new ListViewItem[] { item });  //se agregan los items al listview
-            }
-            
         }
         private void cmbDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
