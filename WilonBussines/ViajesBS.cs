@@ -51,11 +51,11 @@ namespace WilonBussines
 
         }
 
-        public DataTable SeleccionarTodosDT(string documento)       //trae el parametro de CuentasCorrientesForm/Buscar_Click
+        public DataTable SeleccionarPorDocumento(string documento)       //trae el parametro de CuentasCorrientesForm/Buscar_Click
         {
             var wLstCondicion = new DataTable();
             var wBD = new ViajesBD();
-            wLstCondicion = wBD.SelectAll(documento);   //lleva el parametro a la base de datos
+            wLstCondicion = wBD.SelectByDocument(documento);   //lleva el parametro a la base de datos
             return wLstCondicion;
         }
     }

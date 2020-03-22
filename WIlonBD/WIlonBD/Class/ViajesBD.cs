@@ -175,7 +175,7 @@ namespace WIlonBD.Class
             }
         }
 
-        public DataTable SelectAll(string documento)        //recibe el parametro de ViajesBS
+        public DataTable SelectByDocument(string documento)        //recibe el parametro de ViajesBS
         {
 
             StringBuilder wQuery = new StringBuilder();

@@ -47,11 +47,15 @@ namespace WindowsFormsApp1
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            
+            
             var obViajes = new ViajesBS();
-            DataTable dt = obViajes.SeleccionarTodosDT(cmbDocumento.SelectedValue.ToString());      //filtra por parametro
+            DataTable dt = obViajes.SeleccionarPorDocumento(cmbDocumento.SelectedValue.ToString());      //filtra por parametro
             
             if(cmbDocumento.SelectedValue != null)
             {
+                listaCtaCte.Clear();
+
                 foreach (DataRow row in dt.Rows)
                 {
                         Viajes rs = new Viajes();
@@ -69,30 +73,42 @@ namespace WindowsFormsApp1
                 }
 
             }
+
+            listView1.Clear();
+
             listView1.View = View.Details;      //mostrar la vista en modo detalle
             listView1.FullRowSelect = true;     //selecciona toda la fila y no solo la celda
 
-            //Viajes llenarLista = new Viajes();
+            listView1.Columns.Add("Fecha", 75);     //crea columnas
+            listView1.Columns.Add("Comprobante Nº", 95);
+            listView1.Columns.Add("Detalle", 250);
+            listView1.Columns.Add("Unidad", 70);
+            listView1.Columns.Add("Cantidad", 70);
+            listView1.Columns.Add("Valor Un.", 70);
+            listView1.Columns.Add("DEBE", 70);
+            listView1.Columns.Add("HABER", 70);
 
-            //ListViewItem item = new ListViewItem(llenarLista.);   //crea los items
-            //item.SubItems.Add(txtComprobanteTrans.Text);    //crea los subitems
-            //item.SubItems.Add(txtDetalleTrans.Text);
-            //item.SubItems.Add(txtImporteTrans.Text);
+            foreach (var objeto in listaCtaCte)
+            {
 
-            //listView1.Columns.Add("Fecha", 210);     //crea columnas
-            //listView1.Columns.Add("Comprobante Nº", 115);
-            //listView1.Columns.Add("Detalle", 250);
-            //listView1.Columns.Add("Unidad", 125);
-            //listView1.Columns.Add("Cantidad", 130);
-            //listView1.Columns.Add("Valor Un.", 140);
-            //listView1.Columns.Add("DEBE", 145);
-            //listView1.Columns.Add("HABER", 150);
+                ListViewItem item = new ListViewItem(objeto.fecha.ToString("dd/MM/yyyy"));   //crea los items
+                item.SubItems.Add(objeto.numeroComprobante.ToString());    //crea los subitems
+                item.SubItems.Add(objeto.detalle.ToString());
+                item.SubItems.Add(objeto.unidad.ToString());
+                item.SubItems.Add(objeto.cantidad.ToString());
+                item.SubItems.Add(objeto.precioUnitario.ToString());
+                item.SubItems.Add(objeto.debeImporte.ToString());
+                item.SubItems.Add(objeto.haberImporte.ToString());
 
-            //listView1.Items.AddRange(new ListViewItem[] { item });  //se agregan los items al listview
 
+
+                listView1.Items.AddRange(new ListViewItem[] { item });  //se agregan los items al listview
+            }
+            
         }
         private void cmbDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             txtNombre.Enabled = false;
 
             if (cmbDocumento.SelectedValue != null)      //cambia el txtNombre
