@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -48,6 +49,14 @@ namespace WilonBussines
             ViajesBD viajesBD = new ViajesBD();
             return viajesBD.SaveList(listViajes);
 
+        }
+
+        public DataTable SeleccionarTodosDT(string documento)       //trae el parametro de CuentasCorrientesForm/Buscar_Click
+        {
+            var wLstCondicion = new DataTable();
+            var wBD = new ViajesBD();
+            wLstCondicion = wBD.SelectAll(documento);   //lleva el parametro a la base de datos
+            return wLstCondicion;
         }
     }
 }

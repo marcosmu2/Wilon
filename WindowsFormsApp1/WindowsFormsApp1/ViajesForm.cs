@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
     public partial class ViajesForm : Form
     {   
         //crear lista
-        List<Terceros> razon = new List<Terceros>();
+        List<Terceros> llenarCombo = new List<Terceros>();
         List<Viajes> listaTransportista = new List<Viajes>();
 
         public ViajesForm()
@@ -25,7 +25,6 @@ namespace WindowsFormsApp1
             LlenarCombos();
 
         }
-
         public void LlenarCombos()
         {
             var obCuilCuitDest = new TercerosBS();
@@ -38,7 +37,7 @@ namespace WindowsFormsApp1
                 rs.documento = row["Documento"].ToString();
                 rs.razonSocial = row["RazonSocial"].ToString();
 
-                razon.Add(rs);
+                llenarCombo.Add(rs);
             }
 
             //Combo CUIL/CUIT Destinatario
@@ -72,14 +71,13 @@ namespace WindowsFormsApp1
             cmbTipoTrans.SelectedValue = -1;
 
         }
-
         private void cmbCuilDest_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbCuilDest.SelectedValue != null)      //cambia el txtNombreDest
             {
                 var cuilSeleccionado = cmbCuilDest.SelectedValue.ToString();
 
-                foreach (Terceros item in razon)
+                foreach (Terceros item in llenarCombo)
                 {
                     if (item.documento.ToString() == cuilSeleccionado) 
                     {
@@ -92,14 +90,13 @@ namespace WindowsFormsApp1
                 txtNombreDest.Text = "";
             }
         }
-
         private void cmbCuilTrans_SelectedIndexChanged(object sender, EventArgs e)      //cambia el txtNombreDest
         {
             if (cmbCuilTrans.SelectedValue != null)
             {
                 var cuilSeleccionado = cmbCuilTrans.SelectedValue.ToString();
 
-                foreach (Terceros item in razon)
+                foreach (Terceros item in llenarCombo)
                 {
                     if (item.documento.ToString() == cuilSeleccionado)
                     {
@@ -112,7 +109,6 @@ namespace WindowsFormsApp1
                 txtNombreTrans.Text = "";
             }
         }
-
         private void btnMas_Click(object sender, EventArgs e)                    //CREAR LISTA
         {
             listView1.View = View.Details;      //mostrar la vista en modo detalle
@@ -170,7 +166,6 @@ namespace WindowsFormsApp1
             txtImporteTrans.Text = "";
 
         }
-
         private void btnMenos_Click(object sender, EventArgs e)     
         {
             Viajes borrar = new Viajes();
@@ -191,7 +186,6 @@ namespace WindowsFormsApp1
             }
                         
         }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string cuilDest = "";
@@ -280,7 +274,6 @@ namespace WindowsFormsApp1
 
             Close();
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {           
             Close();

@@ -74,6 +74,7 @@
             this.btnCuentasCorrientes.TabIndex = 3;
             this.btnCuentasCorrientes.Text = "Cuentas Corrientes";
             this.btnCuentasCorrientes.UseVisualStyleBackColor = true;
+            this.btnCuentasCorrientes.Click += new System.EventHandler(this.btnCuentasCorrientes_Click);
             // 
             // btnPagos
             // 

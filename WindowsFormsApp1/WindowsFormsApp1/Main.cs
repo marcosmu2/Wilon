@@ -53,5 +53,10 @@ namespace WindowsFormsApp1
             form5.Show();
         }
 
+        private void btnCuentasCorrientes_Click(object sender, EventArgs e)
+        {
+            var form6 = new CuentasCorrientesForm();
+            form6.Show();
+        }
     }
 }

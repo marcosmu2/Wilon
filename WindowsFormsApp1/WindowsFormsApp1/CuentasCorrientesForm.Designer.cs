@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbDocumento = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.btnIngresos = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEgresos = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +80,7 @@
             this.btnBuscar.TabIndex = 5;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAgregar
             // 
@@ -114,6 +115,7 @@
             this.cmbDocumento.Name = "cmbDocumento";
             this.cmbDocumento.Size = new System.Drawing.Size(141, 21);
             this.cmbDocumento.TabIndex = 1;
+            this.cmbDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbDocumento_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -123,14 +125,6 @@
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Documento Nro:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 142);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(776, 173);
-            this.listBox1.TabIndex = 1;
             // 
             // label3
             // 
@@ -196,11 +190,21 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 99);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(776, 216);
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // CuentasCorrientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 398);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEgresos);
             this.Controls.Add(this.btnImprimir);
@@ -208,7 +212,6 @@
             this.Controls.Add(this.btnIngresos);
             this.Controls.Add(this.txtSaldo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "CuentasCorrientesForm";
             this.Text = "CuentasCorrientesForm";
@@ -228,7 +231,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbDocumento;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.Button btnIngresos;
@@ -237,5 +239,6 @@
         private System.Windows.Forms.Button btnEgresos;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.ListView listView1;
     }
 }
